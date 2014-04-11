@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+    
+    <persistence-unit name="productDS" transaction-type="RESOURCE_LOCAL">
+        <description>PersistenceUnit</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>ch.steponline.product.model.Product</class>
+        <class>ch.steponline.product.model.ProductGroup</class>
+        <class>ch.steponline.product.model.ProductStyling</class>
+        <class>ch.steponline.product.model.ProductTextContainer</class>
+        <class>ch.steponline.product.model.ProductGroupTextContainer</class>
+        <class>ch.steponline.address.model.Employee</class>
+        <class>ch.steponline.address.model.Employer</class>
+        <class>ch.steponline.core.model.Language</class>
+        <class>ch.steponline.core.model.LanguageTextContainer</class>
+        <class>ch.steponline.core.model.Unit</class>
+        <class>ch.steponline.core.model.UnitTextContainer</class>
+        <class>ch.steponline.core.model.UnitFactorAss</class>
+
+        <class>ch.steponline.persistence.EntityRevision</class>
+
+        <properties>
+
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:testdb;create=true"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+
+             <!--
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS audit" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.connection.shutdown" value="true"/>
+             -->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.transaction.flush_before_completion" value="true"/>
+            <property name="javax.persistence.schema-generation-action" value="create"/>
+            <property name="javax.persistence.schema-generation-target" value="testdb"/>
+        </properties>
+
+
+    </persistence-unit>
+</persistence>
